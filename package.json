@@ -1,0 +1,23 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Marketplace app that totally isn't a ripoff of Amazon",
+  "main": "bamazonCustomer.js",
+  "dependencies": {
+    "inquirer": "^6.1.0",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tbd"
+  },
+  "keywords": [
+    "marketplace"
+  ],
+  "author": "Stella Miller",
+  "license": "ISC"
+}
