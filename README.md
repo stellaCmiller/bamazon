@@ -1,7 +1,11 @@
 # CLI Marketplace - "🅱️amazon"
-
 Bamazon is a simple CLI app that lets customers purchase items from "Bamazon", the cool hip younger brother of amazon.com. This project uses a MySQL database to keep track of products and customer orders. In addition to purchasing from bamazon, the app features a manager view and supervisor view to perform more advanced functions such as adding more stock, creating new items to sell, and keeping track of profit margins.
-
+  * [Customer View](#customer-view)
+  * [Manager Views](#manager-views)
+    + [Display Stock](#display-stock)
+    + [View Low Inventory](#view-low-inventory)
+    + [Add Stock](#add-stock)
+    + [Add New Product](#add-new-product)
 ## Customer View
 ![](./readmepics/CustomerView.PNG) <br>
 When you initialize the app by calling ```node bamazonCustomer.js```as a customer, you'll be shown a list of products availale for purchase along with their ID and price. You'll then be prompted to select the id of the item you'd like to purchase and how many.
