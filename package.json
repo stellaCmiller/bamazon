@@ -4,8 +4,10 @@
   "description": "Marketplace app that totally isn't a ripoff of Amazon",
   "main": "bamazonCustomer.js",
   "dependencies": {
+    "console.table": "^0.10.0",
     "inquirer": "^6.1.0",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "npm": "^6.4.0"
   },
   "devDependencies": {},
   "scripts": {

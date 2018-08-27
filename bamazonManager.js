@@ -123,8 +123,8 @@ function addProduct(){
             validate: value => {return (Number.isInteger(parseInt(value)) ? true : "Please enter a number");}
         }
     ]).then(answers => {
-        connection.query(`INSERT INTO products (product_name, department_name, price, stock_quantity) 
-        VALUES ("${answers.product_name}", "${answers.department}", ${answers.price}, ${answers.stock})`, function(err, res, fields) {
+        connection.query(`INSERT INTO products (product_name, department_name, price, product_sales, stock_quantity) 
+        VALUES ("${answers.product_name}", "${answers.department}", ${answers.price}, 0,${answers.stock})`, function(err, res, fields) {
             if (err) throw err;
             console.log("Thank you! You've successfully added a new product.");
             doMore();

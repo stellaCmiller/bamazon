@@ -42,13 +42,7 @@ function askForOrder() {
         {
             name: "quantity",
             message: "How many would you like to buy?",
-            validate: function(value){
-                if (Number.isInteger(parseInt(value))){
-                    return true;
-                } else {
-                    return "Please enter a number";
-                }
-            }
+            validate: value => {return (Number.isInteger(parseInt(value)) ? true : "Please enter a number");}
         }
     ]).then(answers => {
         purchase(answers);
@@ -64,9 +58,15 @@ function purchase(item){
             console.log("Sorry, we do not have enough of that item in stock to fulfill your order. Please try again. \n");
             return askForOrder();
         } else {
-            console.log(`Nice choice! You have purchased ${item.quantity} ${res[0].product_name} for a total price of ${item.quantity * res[0].price}`);
+            let total = item.quantity * res[0].price;
+            console.log(`Nice choice! You have purchased ${item.quantity} ${res[0].product_name} for a total price of ${total}`);
             connection.query(`UPDATE products SET stock_quantity=${currentStock-item.quantity} WHERE item_id=`+item.productID, function(err, res, fields){
-                logOut();
+                if (err) throw err;
+                connection.query(`UPDATE products SET product_sales = ((SELECT product_sales WHERE item_id = ${item.productID}) +(${total})) WHERE item_id = ${item.productID};`, function(e, r, f){
+                    if (e) throw e;
+                    console.log("Stock and sales updated");
+                    logOut();
+                })
             })
         }
     });
