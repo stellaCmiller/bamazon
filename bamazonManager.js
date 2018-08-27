@@ -75,24 +75,24 @@ function addStock(){
         res.forEach(e => {
             itemIDs.push(String(e.item_id));
         });
-    });
-    inquirer.prompt([
-        {
-            type: "list",
-            name: "item_id",
-            message: "Please select the item_id you'd like to add more of: ",
-            choices: itemIDs
-        },
-        {
-            type: "input",
-            name: "quantity",
-            message: "Please input the number of units you'd like to add: ",
-            validate: value => {(Number.isInteger(parseInt(value)) ? true : "Please enter a number");}
-        }
-    ]).then(answers => {
-        connection.query(`UPDATE products SET stock_quantity = ((SELECT stock_quantity WHERE item_id = ${answers.item_id}) + (${answers.quantity})) WHERE item_id = ${answers.item_id};`, function(err, res, fields){
-            console.log("Success! You've successfully updated stock.");
-            doMore();
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "item_id",
+                message: "Please select the item_id you'd like to add more of: ",
+                choices: itemIDs
+            },
+            {
+                type: "input",
+                name: "quantity",
+                message: "Please input the number of units you'd like to add: ",
+                validate: value => {return (Number.isInteger(parseInt(value)) ? true : "Please enter a number");}
+            }
+        ]).then(answers => {
+            connection.query(`UPDATE products SET stock_quantity = ((SELECT stock_quantity WHERE item_id = ${answers.item_id}) + (${answers.quantity})) WHERE item_id = ${answers.item_id};`, function(err, res, fields){
+                console.log("Success! You've successfully updated stock.");
+                doMore();
+            });
         });
     });
 }
