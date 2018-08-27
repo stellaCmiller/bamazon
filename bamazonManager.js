@@ -149,4 +149,5 @@ function doMore(){
     })
 }
 
+// MAIN
 displayMenu();
