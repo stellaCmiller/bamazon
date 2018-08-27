@@ -1,1 +1,1 @@
-# CLI Marketplace# bamazon
+# CLI Marketplace - "🅱️amazon"
