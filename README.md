@@ -32,13 +32,3 @@ You will be shown a list of item IDs to choose from, and then prompted to add th
 ![](./readmepics/addProduct.PNG)<br>
 The program will walk the manager through all of the steps necessary to add another row to the products table. The item_id column need not be specified, since it will auto increment. You can see the product added to the table when you ask to view products for sale again: <br>
 ![](./readmepics/proofOfAdd.PNG)
-![customer view](./readmepics/CustomerView.PNG) <br>
-When you initialize the app by calling ```node BamazonCustomer.js```as a customer, you'll be shown a list of products availale for purchase along with their ID and price. You'll then be prompted to select the id of the item you'd like to purchase and how many.
-<br>
-![customer purchase](./readmepics/CustomerPurchase.PNG)
-<br>
-![complete purchase](./readmepics/completePurchase.PNG) <br>
-Once you make your order, you'll be shown the total cost of your purchase and given a log out message. The products database will update, depleting the stock accordingly. If you attempt to order more items than there are available, you'll be prompted to try again: <br>
-![lowstock](./readmepics/lowstockCustomer.PNG)
-
-## Manager Views
